@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    manifest: Etiqueta raíz obligatoria de todo proyecto Android. Define el paquete base y configuraciones globales de la aplicación.
+    xmlns:android: Define el espacio de nombres de atributos XML del sistema operativo Android.
+    xmlns:tools: Define el espacio de nombres para herramientas de desarrollo y anulaciones de compilación de Android Studio.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        uses-permission: Solicita permisos del sistema operativo requeridos para la ejecución de la app.
+        android:name="android.permission.INTERNET": Permiso crítico obligatorio para que la librería Volley pueda realizar solicitudes HTTP a servidores externos a través de Internet.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+        application: Bloque de configuración principal que contiene las actividades, servicios y características globales de la app.
+        android:allowBackup="true": Habilita el respaldo y restauración automática de datos de la app en la cuenta de Google del usuario.
+        android:dataExtractionRules: Referencia al archivo XML de reglas que limita qué datos se pueden extraer en respaldos locales o nube.
+        android:fullBackupContent: Archivo de reglas de inclusión/exclusión para respaldos completos en la nube.
+        android:icon: Referencia al ícono principal de la aplicación mostrado en el lanzador (Launcher) del dispositivo.
+        android:label: Nombre visible de la aplicación obtenido del recurso de cadenas strings.xml.
+        android:roundIcon: Referencia al ícono en formato circular para dispositivos con lanzadores adaptativos.
+        android:supportsRtl: Habilita el soporte para alfabetos de lectura de derecha a izquierda (Right-To-Left, como árabe o hebreo).
+        android:theme: Define el estilo visual y tema predeterminado aplicado a las pantallas de la aplicación.
+    -->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ApiGETVolley">
+
+        <!--
+            activity: Declaración de cada pantalla (Activity) existente dentro del paquete de la aplicación.
+            android:name=".MainActivity": Especifica el nombre de la clase de la actividad (.MainActivity dentro del paquete actual).
+            android:exported="true": Permite que esta actividad sea lanzada por componentes fuera de la aplicación (necesario para la pantalla de inicio).
+            android:label: Nombre mostrado en la barra superior de la pantalla.
+            android:theme: Tema visual específico aplicado a la actividad.
+            android:windowSoftInputMode="adjustResize": Ajusta el tamaño del diseño automáticamente cuando aparece el teclado en pantalla.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.ApiGETVolley"
+            android:windowSoftInputMode="adjustResize">
+
+            <!--
+                intent-filter: Especifica qué tipos de intenciones (Intents) responderá esta actividad dentro del sistema operativo.
+            -->
+            <intent-filter>
+                <!--
+                    action android:name="android.intent.action.MAIN": Define a MainActivity como el punto de entrada principal (Entry Point) de la aplicación.
+                -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <!--
+                    category android:name="android.intent.category.LAUNCHER": Ubica el ícono de MainActivity en el cajón/menú de aplicaciones del dispositivo.
+                -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

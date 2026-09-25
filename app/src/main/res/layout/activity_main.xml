@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    LinearLayout: Contenedor de diseño que organiza sus vistas hijas secuencialmente en una sola dirección (vertical u horizontal).
+    xmlns:android: Declaración del espacio de nombres XML para los atributos estándar del SDK de Android.
+    android:id="@+id/main": Identificador único asignado a este contenedor principal en la clase R.
+    android:layout_width="match_parent": Ajusta el ancho del contenedor para que ocupe todo el espacio del contenedor padre (pantalla completa).
+    android:layout_height="match_parent": Ajusta el alto del contenedor para que ocupe todo el alto disponible en pantalla.
+    android:orientation="vertical": Apila todas las vistas hijas una debajo de la otra en dirección vertical.
+    android:padding="16dp": Aplica un margen interno de 16 píxeles independientes de la densidad alrededor del contenido.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!--
+        TextView: Componente de la interfaz gráfica utilizado para mostrar texto estático o dinámico.
+        android:id="@+id/tvTitulo": Identificador único en la clase R para referenciar el título desde el código Kotlin.
+        android:layout_width="match_parent": Ocupa todo el ancho horizontal disponible dentro del LinearLayout.
+        android:layout_height="wrap_content": Ajusta la altura automáticamente según el contenido del texto.
+        android:text="@string/tv_title": Referencia al recurso de texto almacenado en el archivo strings.xml.
+        android:textSize="20sp": Define el tamaño de letra en píxeles escalables (SP) adaptables a la preferencia del usuario.
+        android:textStyle="bold": Aplica estilo de texto en negrita (resaltado).
+        android:gravity="center": Centra el texto horizontal y verticalmente dentro de los límites del TextView.
+        android:paddingBottom="12dp": Agrega un espacio/separación de 12dp en la parte inferior del texto.
+    -->
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="12dp" />
+
+    <!--
+        ProgressBar: Componente visual de indicador de progreso (círculo de carga/spinner) durante operaciones asíncronas de red.
+        android:id="@+id/progressBar": Identificador único en la clase R para controlar su visibilidad desde Kotlin.
+        style="?android:attr/progressBarStyle": Aplica el estilo visual por defecto del sistema Android para barras de progreso circulares.
+        android:layout_width="wrap_content": Ancho ajustado a las dimensiones naturales del spinner.
+        android:layout_height="wrap_content": Alto ajustado al tamaño natural del spinner.
+        android:layout_gravity="center": Alinea y centra la barra de progreso dentro del LinearLayout padre.
+        android:visibility="gone": Estado inicial oculto que no ocupa espacio en el diseño hasta que se activa por código.
+    -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!--
+        TextView: Componente de texto para notificar al usuario sobre fallos o errores de red.
+        android:id="@+id/tvEstado": Identificador único en la clase R.
+        android:layout_width="match_parent": Ocupa todo el ancho horizontal disponible.
+        android:layout_height="wrap_content": Altura adaptada al mensaje desplegado.
+        android:gravity="center": Texto centrado.
+        android:textColor="@android:color/holo_red_dark": Aplica color de texto rojo para indicar estado de error.
+        android:textSize="16sp": Tamaño de letra de 16sp.
+        android:padding="8dp": Relleno interno de 8dp alrededor del texto.
+        android:visibility="gone": Inicialmente invisible hasta que ocurra un error.
+    -->
+    <TextView
+        android:id="@+id/tvEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:visibility="gone" />
+
+    <!--
+        ListView: Componente de la interfaz gráfica que muestra una lista vertical desplazable de elementos.
+        android:id="@+id/lvTodos": Identificador único en R utilizado para vincular el ArrayAdapter desde Kotlin.
+        android:layout_width="match_parent": Ancho adaptable al padre.
+        android:layout_height="0dp": Se combina con layout_weight para expandirse y llenar el espacio vertical restante.
+        android:layout_weight="1": Ponderación de peso que obliga a la lista a ocupar todo el espacio vertical disponible en el LinearLayout.
+        android:divider="#CCCCCC": Color gris claro (#CCCCCC) para la línea divisoria entre los elementos de la lista.
+        android:dividerHeight="1dp": Grosor de 1dp para la línea separadora entre ítems.
+    -->
+    <ListView
+        android:id="@+id/lvTodos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>
